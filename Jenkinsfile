@@ -6,6 +6,7 @@ pipeline{
   
   parameters{
     string(name: 'VERSION', defaultValue: 'abc', description: 'This is the version to deploy on prod')
+    booleanParam(name: extecuteTests, defaultValue: true, description: 'run tests if true')
   }
   environment{
     NEW_VERSION='1.2.3'
@@ -36,6 +37,10 @@ pipeline{
     }
     
     stage("Testing"){
+      when{
+        expression{
+          params.extecuteTests == true
+        }
     steps{
         echo 'testing the app'
       }
