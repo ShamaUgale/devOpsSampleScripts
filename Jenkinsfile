@@ -3,6 +3,10 @@
 pipeline{
 
   agent any
+  environment{
+    NEW_VERSION='1.2.3'
+    SERVER_CREDENTIALS = credentials('')
+  }
   
   stages{
   
@@ -24,7 +28,7 @@ pipeline{
         }
       }
        steps{
-        echo 'builing the app'
+        echo "builing the app with version ${NEW_VERSION}"
       }
     }
     
