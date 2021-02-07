@@ -20,11 +20,9 @@ pipeline{
       when{
         expression{
         
-          BRANCH_NAME = 'DEV'
+          BRANCH_NAME = 'DEV' || BRANCH_NAME = 'MASTER' && CODE_CHANGES== TRUE
         }
-      
       }
-    
        steps{
         echo 'builing the app'
       }
