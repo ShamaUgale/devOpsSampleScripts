@@ -3,6 +3,10 @@
 pipeline{
 
   agent any
+  
+  parameters{
+    string(name: 'VERSION', defaultValue: 'abc', description: 'This is the version to deploy on prod')
+  }
   environment{
     NEW_VERSION='1.2.3'
     SERVER_CREDENTIALS = credentials('')
