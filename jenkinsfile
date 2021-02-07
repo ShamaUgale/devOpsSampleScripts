@@ -1,0 +1,41 @@
+// this is a sample jenkinsfile structure (declarative)
+
+pipeline{
+
+  agent any
+  
+  stages{
+  
+    stage(" git checkout"){
+      
+      steps{
+        echo 'pulling code from GIT'
+      }
+    
+    }
+    
+    stage(" build app"){
+    
+       steps{
+        echo 'builing the app'
+      }
+    }
+    
+    stage("Testing"){
+    
+    steps{
+        echo 'testing the app'
+      }
+    }
+    
+    stage("Deploying"){
+    
+    steps{
+        echo 'deploying the app'
+      }
+    }
+  
+  }
+
+
+}
