@@ -7,6 +7,7 @@ pipeline{
   parameters{
     string(name: 'VERSION', defaultValue: 'abc', description: 'This is the version to deploy on prod')
     booleanParam(name: extecuteTests, defaultValue: true, description: 'run tests if true')
+    choice(name: 'fileName', choices: ['all files', 'ABC', 'XYZ'], description: 'this nis a drop down with buuild with parameters on jenkins gui')
   }
   environment{
     NEW_VERSION='1.2.3'
