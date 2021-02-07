@@ -16,6 +16,15 @@ pipeline{
     
     stage(" build app"){
     
+    // will run only if the condition is true
+      when{
+        expression{
+        
+          BRANCH_NAME = 'DEV'
+        }
+      
+      }
+    
        steps{
         echo 'builing the app'
       }
@@ -37,5 +46,20 @@ pipeline{
   
   }
 
+post{
+
+  always{
+    // always runs this 
+    // like sending email on build status
+  }
+  
+  success{
+    // only if build passes
+  }
+  
+  failure{
+  // only if build failed
+  }
+}
 
 }
